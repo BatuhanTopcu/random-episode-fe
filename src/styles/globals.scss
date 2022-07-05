@@ -1,12 +1,12 @@
 @import "reset";
 @import "fonts";
 @import "variables";
-@import "/components/ShowList";
-@import "/components/Search";
-@import "/components/ShowCard";
-@import "/components/EpisodeContainer";
-@import "/components/EpisodeCard";
-@import "/components/LoadingBar";
+@import "./components/ShowList";
+@import "./components/Search";
+@import "./components/ShowCard";
+@import "./components/EpisodeContainer";
+@import "./components/EpisodeCard";
+@import "./components/LoadingBar";
 
 body {
   background-color: $color-primary;
