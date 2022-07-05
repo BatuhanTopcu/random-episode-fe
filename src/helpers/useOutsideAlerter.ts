@@ -7,7 +7,7 @@ export const useOutsideAlerter = (
   useEffect(() => {
     function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
-        func(false);
+        func();
       }
     }
     document.addEventListener("mousedown", handleClickOutside);

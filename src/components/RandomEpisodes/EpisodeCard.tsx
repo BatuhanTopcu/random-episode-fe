@@ -11,12 +11,10 @@ export default function EpisodeCard({ episode, onClick }: IEpisodeCardProps) {
   const randomTilt = useRef(Math.random() * 5 * (Math.random() > 0.5 ? 1 : -1));
   const randomHue = useRef(Math.floor(Math.random() * 360).toString());
 
-  const style = useMemo(() => {
-    return {
-      "--random-hue": `${randomHue.current}`,
-      "--random-tilt": `${randomTilt.current}deg`,
-    } as React.CSSProperties;
-  }, [randomHue, randomTilt]);
+  const style = {
+    "--random-hue": `${randomHue.current}`,
+    "--random-tilt": `${randomTilt.current}deg`,
+  } as React.CSSProperties;
 
   return (
     <div className="episode-card" style={style} onClick={onClick}>

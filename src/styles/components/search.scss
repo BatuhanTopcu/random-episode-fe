@@ -27,6 +27,7 @@
     &:focus {
       background-color: $color-primary;
       padding-left: 10px;
+      color: $color-primary-dark;
       & ~ .search-icon {
         transform: translateX(-10px);
         opacity: 0;
