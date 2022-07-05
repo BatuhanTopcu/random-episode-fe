@@ -1,17 +1,17 @@
 .show-list__items {
   width: 95%;
-  background-color: #1b2430;
+  background-color: $color-primary-dark;
   position: fixed;
   bottom: 70px;
   left: 50%;
-  z-index: 1;
+  z-index: 3;
   border-radius: 10px;
   padding: 10px;
-  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25));
+  filter: $dark-shadow;
   opacity: 0;
   pointer-events: none;
   transform: translateX(-50%), translateY(10px);
-  transition: all 0.2s ease-in-out;
+  transition: $transition;
   &.show {
     opacity: 1;
     pointer-events: all;
@@ -20,18 +20,14 @@
   h1.title {
     font-size: 1.5rem;
     font-weight: 500;
-    color: #dff6ff;
-    margin: 0;
-    padding: 0;
+    color: $color-text-light;
     text-align: center;
     margin-bottom: 15px;
   }
   h2.no-item {
     font-size: 1.2rem;
     font-weight: 500;
-    color: #dff6ff;
-    margin: 0;
-    padding: 0;
+    color: $color-text-light;
     text-align: center;
   }
   &__scroll {
@@ -48,19 +44,19 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #810955;
+  background-color: $color-secondary;
   position: fixed;
   bottom: 10px;
   right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.15));
-  transition: all 0.2s ease-in-out;
+  filter: $dark-shadow;
+  transition: $transition;
   font-size: 1.6rem;
   font-weight: 600;
-  color: #dff6ff;
+  color: $color-text-light;
   &:hover {
-    background-color: #610c63;
+    background-color: $color-secondary-light;
   }
 }
