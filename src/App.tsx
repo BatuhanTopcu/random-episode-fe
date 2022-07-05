@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { getRandomEpisodes } from "@requests";
 import { addRemoveShow, useLocalShows } from "@helpers/localStorage";
-import Search from "./components/Search";
+import Search from "@components/Search";
+import ShowList from "@components/ShowList";
+
 function App() {
   const [localShows, setLocalShows] = useLocalShows();
 
@@ -17,8 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      {localShows.map((show) => show.name)}
       <Search />
+      <ShowList />
     </div>
   );
 }

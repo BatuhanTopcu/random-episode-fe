@@ -3,6 +3,7 @@ import { useDebounce, useOutsideAlerter } from "@helpers/hooks";
 import { Show } from "@types";
 import { apiSearch } from "@requests";
 import ShowCard from "@components/ShowCard";
+import SearchInput from "./SearchInput";
 
 export default function Search() {
   const [search, setSearch] = useState("");
@@ -14,33 +15,42 @@ export default function Search() {
   useOutsideAlerter(() => setIsOpen(false), searchRef);
 
   useEffect(() => {
-    if (debouncedSearch) {
+    if (debouncedSearch.length > 2) {
       (async () => {
         const data = await apiSearch(debouncedSearch);
         setResults(data);
       })();
+    } else {
+      setResults([]);
     }
   }, [debouncedSearch]);
 
   return (
     <div className="search__container" ref={searchRef}>
-      <input
-        type="text"
+      <SearchInput
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onFocus={() => setIsOpen(true)}
       />
-      {isOpen && (
-        <div className="search__results">
-          {results.length > 0 && (
-            <div className="search__results__scroll">
-              {results.map((show) => (
-                <ShowCard show={show} />
-              ))}
+
+      <div
+        className={`search__results ${
+          isOpen && debouncedSearch.length > 0 ? "show" : ""
+        }`}
+      >
+        <div className="search__results__scroll">
+          {results.length === 0 && debouncedSearch.length > 2 && (
+            <div className="no-result">No results found</div>
+          )}
+          {debouncedSearch.length <= 2 && (
+            <div className="no-result">
+              Type {3 - debouncedSearch.length} more characters
             </div>
           )}
+          {results.length > 0 &&
+            results.map((show) => <ShowCard key={show.id} show={show} />)}
         </div>
-      )}
+      </div>
     </div>
   );
 }
