@@ -8,7 +8,7 @@ type IEpisodeCardProps = {
 };
 
 export default function EpisodeCard({ episode, onClick }: IEpisodeCardProps) {
-  const randomTilt = useRef(Math.random() * 5 * (Math.random() > 0.5 ? 1 : -1));
+  const randomTilt = useRef(Math.random() * 3 * (Math.random() > 0.5 ? 1 : -1));
   const randomHue = useRef(Math.floor(Math.random() * 360).toString());
 
   const style = {

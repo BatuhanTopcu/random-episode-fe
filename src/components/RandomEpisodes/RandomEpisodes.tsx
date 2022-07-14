@@ -4,7 +4,6 @@ import { getRandomEpisodes } from "@requests";
 import { Episode } from "@types";
 import EpisodeCard from "./EpisodeCard";
 import LoadingBar from "@components/LoadingBar";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 export default function RandomEpisodes() {
   const [localShows] = useLocalShows();
